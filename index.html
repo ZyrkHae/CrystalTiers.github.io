@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Crystal PvP Tier List</title>
+<style>
+body { font-family: Arial; background: #111; color: white; text-align: center; }
+.tier { margin: 20px; padding: 10px; border-radius: 10px; }
+.S { background: #ff0000; }
+.A { background: #ff8800; }
+.B { background: #ffff00; color: black; }
+.C { background: #00ff00; color: black; }
+.D { background: #0088ff; }
+.player { margin: 5px; padding: 5px; background: #222; display: inline-block; border-radius: 5px; }
+button { padding: 10px; margin: 10px; }
+</style>
+</head>
+<body>
+
+<h1>Crystal PvP Tier List</h1>
+
+<input id="name" placeholder="Nick gracza">
+<select id="tier">
+<option value="S">S</option>
+<option value="A">A</option>
+<option value="B">B</option>
+<option value="C">C</option>
+<option value="D">D</option>
+</select>
+<button onclick="addPlayer()">Dodaj</button>
+
+<div id="tiers">
+<div class="tier S"><h2>S Tier</h2></div>
+<div class="tier A"><h2>A Tier</h2></div>
+<div class="tier B"><h2>B Tier</h2></div>
+<div class="tier C"><h2>C Tier</h2></div>
+<div class="tier D"><h2>D Tier</h2></div>
+</div>
+
+<script>
+function addPlayer() {
+let name = document.getElementById("name").value;
+let tier = document.getElementById("tier").value;
+if(name === "") return;
+
+let div = document.createElement("div");
+div.className = "player";
+div.innerText = name;
+
+document.querySelector("." + tier).appendChild(div);
+document.getElementById("name").value = "";
+}
+</script>
+
+</body>
+</html>
